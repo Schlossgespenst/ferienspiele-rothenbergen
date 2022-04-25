@@ -22,10 +22,10 @@ function createPDF(reg) {
   });
 
   const title = `Einverständniserklärung für ${reg.child.firstName} ${reg.child.lastName}`;
-  doc.info.Author = 'Kinderferienspiele Rothenbergen';
+  doc.info.Author = 'Kinderferienspiele Niedergründau';
   doc.info.Title = title;
 
-  bold(doc).fontSize(18).text(`Kinderferienspiele Rothenbergen ${config.year}`);
+  bold(doc).fontSize(18).text(`Kinderferienspiele Niedergründau ${config.year}`);
 
   bold(doc).fontSize(14).text(title);
   doc.moveDown();
@@ -70,7 +70,7 @@ function bold(doc) {
 
 function createBody(reg) {
   return `
-Hiermit erkläre ich mich einverstanden, dass mein Kind an den Kinderferienspielen Rothenbergen vom ${formatDate(
+Hiermit erkläre ich mich einverstanden, dass mein Kind an den Kinderferienspielen Niedergründau vom ${formatDate(
     config.startDate
   )} bis ${formatDate(config.endDate)} ${
     reg.uebernachtung && reg.uebernachtung.type === 'uebernachtung' ? 'mit anschließender Übernachtung ' : ''
@@ -96,7 +96,7 @@ Die Veranstalter haften nicht für den Verlust oder die Beschädigung von Gegens
 
 Es werden während der Ferienspiele Fotos gemacht. Ich bin mit deren Veröffentlichung auf den Homepages und in den Gemeindebriefen der drei ausrichtenden Kirchengemeinden einverstanden.
 
-Ich akzeptieren die zu dem Zeitpunkt der Ferienspiele geltenden und mit dem Ordnungsamt abgestimmten Hygienemaßnahmen gegen die Coronapandemie und erkläre sie vorab meinem Kind. Sollte die Veranstaltung aufgrund der Coronasituation von Seiten der Kirchengemeinden abgesagt, werden bereits bezahlte Beiträge selbstverständlich zurückerstattet.`
+Mir ist bekannt, dass zum Zeitpunkt der Anmeldung etwaige Corona-Maßnahmen noch nicht festgelegt werden können. Ich erkläre mich aber einverstanden, dass mein Kind getestet zu den Ferienspielen kommen wird, wenn das Veranstaltungsteam darum bittet.
     .split(/\n/)
     .map((line) => line.trim())
     .filter((line) => line.length);
@@ -108,9 +108,9 @@ Datum, Unterschrift
 
 Bitte schicken Sie diese Einverständniserklärung bis zum ${formatDate(
     config.waiverDeadline
-  )} unterschrieben an das Gemeindebüro der ev. Kirche oder geben sie in einem verschlossenen Umschlag dort ab.
+  )} unterschrieben an das Gemeindebüro Katholischen Kirchengemeinde Christkönig oder geben sie in einem verschlossenen Umschlag dort ab.
 
-Büro der ev. Kirche "Auf dem Berg", Paul-Gerhardt Str.2, 63584 Gründau-Lieblos, Einwurf in den Briefkasten genügt.`
+Gemeindebüro Christkönig, Niedergründauer Straße 20 (gegenüber Anton-Calaminus-Schule), 63584 Gründau. Einwurf in den Briefkasten genügt.`
     .split(/\n/)
     .map((line) => line.trim())
     .filter((line) => line.length);
